@@ -6,7 +6,7 @@
         "tags": ["#/CI/workflows/build"],
         "description": "Build workflow"
       },
-    }
+    },
     "tags": {
       "CI": {
         "tags": {
