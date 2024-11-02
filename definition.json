@@ -1,63 +1,24 @@
 {
     "id": "c7447dd8-2da4-4719-b4c3-4250200c9563",
-    "name": "library",
+    "name": "workflows",
     "metadata": {
       "build": {
         "tags": ["#/CI/workflows/build"],
-        "edges": ["#/workflows"],
-        "file": "./.github/workflows/build-workflow.yaml",
-        "processor": "#/reusable_workflow"
+        "description": "Build workflow"
       },
-      "quality": {
-        "tags": ["#/CI/workflow/build"],
-        "edges": ["#/workflows"],
-        "file": "./.github/workflows/quality-workflow.yaml"
-      },
-      "functional": {
-        "purpose": "Sell books to customers",
-        "edges": ["#/stock"]
-      }
-    },
-    "edges": {
-      "workflows": {
-        "definition": "#/http_client",
-        "processor": "#/reusable_workflow"
-      },
-      "stock": {
-        "definition": "https://github/book-club/stock/chara.json"
-      }
-    },
+    }
     "tags": {
       "CI": {
         "tags": {
           "workflow": {
             "tags": {
               "build": {
-                "label": "It's github stuff"
+                "label": "Build workflow"
               }
             }
           }
         }
       }
-    },
-    "processors": {
-      "reusable_workflow": {
-        "program": "github-processor",
-        "install": {
-          "program": "echo",
-          "arguments": ["Hello world"]
-        },
-        "environments": ["#/github", { "HTTP_PROXY": "localhost:6018" }],
-        "arguments": ["#/workflow"]
-      },
-      "http_client":{
-        "program": "cargo",
-        "currentDirectory": "../../scrappers/http",
-        "arguments":["run"]
-      }
-    },
-    "arguments": {
-      "workflow": ["-h"]
     }
   }
   
