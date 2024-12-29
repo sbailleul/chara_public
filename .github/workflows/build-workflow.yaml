@@ -11,6 +11,8 @@ on:
         required: true
 
 jobs:
+  call-workflow:
+    uses: sbailleul/chara-private/.github/workflows/build-workflow.yaml@main
   triage:
     runs-on: ubuntu-latest
     steps:
